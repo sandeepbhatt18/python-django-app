@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+{% extends 'survey_app/base.html' %}
+{% load static %}
+   {% block contant %}
+
+   <head>
+
+
+     <link rel="stylesheet" href="{% static "css/login_form.css" %}">
+     <title>User Login</title>
+   </head>
+   <body>
+
+     <!-- form start from here -->
+     <!-- <div class="wrapper">
+  <form method="POST" class="form-signin" action="{% url "survey_app:user_login" %}" >
+    {% csrf_token %}
+    {# A more "HTML" way of creating the login form#}
+    <h2 class="form-signin-heading">Please login</h2>
+    <input type="text" class="form-control" name="username" placeholder="User Name" required="" autofocus="" />
+    <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    </label>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  </form>
+</div> -->
+
+
+<div class="wrapper">
+  <form method="POST" class="form-signin" action="{% url "survey_app:user_login" %}">
+    {% csrf_token %}
+    {# A more "HTML" way of creating the login form#}
+    <h2 class="form-signin-heading">Please login</h2>
+    <input type="text" class="form-control" name="username" placeholder="User Name" required="" autofocus="" />
+    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    </label>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  </form>
+</div>
+
+
+   {% endblock %}

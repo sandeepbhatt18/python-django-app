@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <title>PIV</title>
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+  </head>
+  <body>
+    <!-- Navbar start from here -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <a class="navbar-brand" href="">Navbar</a> -->
+    <!-- Just an image -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'index' %}">
+    <img src="{% static "images/logo.jpg" %}" width="70" height="50" alt="">
+  </a>
+</nav>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'survey_app:surveyform' %}">Survey Form <span class="sr-only">(current)</span></a>
+      </li>
+
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+      {% else %}
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="{% url 'survey_app:user_login'%}">Login</a>
+      </li> -->
+      {% endif %}
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'survey_app:analysis' %}">Analysis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'survey_app:tracking' %}">Tracking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+      </li>
+
+      <!-- Hide Register link -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="{% url 'survey_app:register' %}">Register</a>
+      </li> -->
+
+
+
+      </ul>
+  </div>
+</nav>
+
+<div class="container">
+  {% block contant %}
+  {% endblock %}
+</div>
+
+  </body>
+  <!-- footer -->
+  <div class="card text-center">
+
+  <div class="card-footer text-muted">
+    Powered By <small>Political India Venture</small>
+    &copy;2019
+  </div>
+</div>
+
+  </html>
