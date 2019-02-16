@@ -30,7 +30,7 @@ SECRET_KEY = 'kuppp08o!fqe_sf_#l9mzyvyc*2(jwgi8ap0g@def3prt65qhn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sandeepbhatt.pythonanywhere.com']
+ALLOWED_HOSTS = ['sandeepbhatt.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'survey_app',
-    # 'crispy_forms',
+    'crispy_forms',
 ]
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
